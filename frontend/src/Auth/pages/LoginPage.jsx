@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Lock, Loader } from "lucide-react";
 import { Link } from "react-router-dom";
 import Input from "../components/input";
-import { useAuthStore } from "../store/authstore";
+import { useAuthStore } from "../../store/authstore";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ const LoginPage = () => {
       className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden"
     >
       <div className="p-8">
-        <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-transparent bg-clip-text">
+        <h2 className="text-3xl font-bold mb-6 text-center bg-[#80D0C7] text-transparent bg-clip-text">
           Welcome Back
         </h2>
 
@@ -48,7 +48,7 @@ const LoginPage = () => {
           <div className="flex items-center mb-6">
             <Link
               to="/forgot-password"
-              className="text-sm text-white hover:text-[#a149ff] hover:underline"
+              className="text-sm text-white hover:text-[#0093E9] hover:underline"
             >
               Forgot password?
             </Link>
@@ -58,7 +58,7 @@ const LoginPage = () => {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-3 px-4 bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-white font-bold rounded-lg shadow-lg hover:from-[#6a11cb] hover:to-[#9634ff] focus:outline-none focus:ring-2 focus:ring-[#6a11cb] focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
+            className="w-full py-3 px-4 bg-gradient-to-r from-[#4758Df] to-[#2575fc] text-white font-bold rounded-lg shadow-lg hover:from-[#4758Df] hover:to-[#0093E9] focus:outline-none focus:ring-2 focus:ring-[#4758Df] focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
             type="submit"
             disabled={isLoading}
           >
@@ -75,7 +75,7 @@ const LoginPage = () => {
           Don't have an account?{" "}
           <Link
             to="/signup"
-            className="text-white hover:text-[#a149ff] hover:underline"
+            className="text-white hover:text-[#0093E9] hover:underline"
           >
             Sign up
           </Link>

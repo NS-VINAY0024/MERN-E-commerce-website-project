@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useAuthStore } from "../store/authstore";
+import { useAuthStore } from "../../store/authstore";
 import { useNavigate, useParams } from "react-router-dom";
 import Input from "../components/input";
 import { Lock } from "lucide-react";
@@ -44,11 +44,11 @@ const ResetPasswordPage = () => {
       className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden"
     >
       <div className="p-8">
-        <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-transparent bg-clip-text">
+        <h2 className="text-3xl font-bold mb-6 text-center bg-[#80D0C7] text-transparent bg-clip-text">
           Reset Password
         </h2>
         {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-        {message && <p className="text-[#6a11cb] text-sm mb-4">{message}</p>}
+        {message && <p className="text-[#4758Df] text-sm mb-4">{message}</p>}
 
         <form onSubmit={handleSubmit}>
           <Input
@@ -72,7 +72,7 @@ const ResetPasswordPage = () => {
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full py-3 px-4 bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-white font-bold rounded-lg shadow-lg hover:from-[#6a11cb] hover:to-[#9634ff] focus:outline-none focus:ring-2 focus:ring-[#6a11cb] focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
+            className="w-full py-3 px-4 bg-gradient-to-r from-[#4758Df] to-[#2575fc] text-white font-bold rounded-lg shadow-lg hover:from-[#4758Df] hover:to-[#0093E9] focus:outline-none focus:ring-2 focus:ring-[#4758Df] focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
             type="submit"
             disabled={isLoading}
           >

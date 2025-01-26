@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useAuthStore } from "../store/authstore";
+import { useAuthStore } from "../../store/authstore";
 import toast from "react-hot-toast";
 
 const EmailVerificationPage = () => {
@@ -70,7 +70,7 @@ const EmailVerificationPage = () => {
         transition={{ duration: 0.5 }}
         className="bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-2xl p-8 w-full max-w-md"
       >
-        <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-transparent bg-clip-text">
+        <h2 className="text-3xl font-bold mb-6 text-center bg-[#80D0C7] text-transparent bg-clip-text">
           Verify Your Email
         </h2>
         <p className="text-center text-gray-300 mb-6">
@@ -88,7 +88,7 @@ const EmailVerificationPage = () => {
                 value={digit}
                 onChange={(e) => handleChange(index, e.target.value)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
-                className="w-12 h-12 text-center text-2xl font-bold bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:border-[#6a11cb] focus:outline-none"
+                className="w-12 h-12 text-center text-2xl font-bold bg-gray-700 text-white border-2 border-gray-600 rounded-lg focus:border-[#4758Df] focus:outline-none"
               />
             ))}
           </div>
@@ -98,7 +98,7 @@ const EmailVerificationPage = () => {
             whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={isLoading || code.some((digit) => !digit)}
-            className="w-full bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:from-[#6a11cb] hover:to-[#9634ff] focus:outline-none focus:ring-2 focus:ring-[#6a11cb] focus:ring-opacity-50 disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-[#4758Df] to-[#2575fc] text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:from-[#4758Df] hover:to-[#0093E9] focus:outline-none focus:ring-2 focus:ring-[#4758Df] focus:ring-opacity-50 disabled:opacity-50"
           >
             {isLoading ? "Verifying..." : "Verify Email"}
           </motion.button>

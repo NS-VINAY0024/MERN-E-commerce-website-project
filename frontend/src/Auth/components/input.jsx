@@ -6,7 +6,7 @@ const Input = ({ icon: Icon, ...props }) => {
       </div>
       <input
         {...props}
-        className="w-full pl-10 pr-3 py-2 bg-gray-800 bg-opacity-50 rounded-lg border border-gray-700 focus:border-[#6a11cb] focus:ring-2 focus:ring-[#6a11cb] text-white placeholder-gray-400 transition duration-200"
+        className="w-full px-40 pl-10 py-2 bg-gray-800 bg-opacity-50 rounded-lg border border-gray-700 focus:border-[#0093E9] focus:ring-2 focus:ring-[#0093E9] text-white placeholder-gray-400 transition duration-200"
       />
     </div>
   );

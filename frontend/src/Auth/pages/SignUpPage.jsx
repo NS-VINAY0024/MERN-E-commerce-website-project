@@ -5,24 +5,44 @@ import { Loader, Lock, Mail, User } from "lucide-react";
 
 import Input from "../components/input";
 import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
-import { useAuthStore } from "../store/authstore";
+import { useAuthStore } from "../../store/authstore";
 
 const SignUpPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordMismatch, setPasswordMismatch] = useState(false);
 
+  const navigate = useNavigate();
   const { signup, error, isLoading } = useAuthStore();
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    if (confirmPassword) {
+      setPasswordMismatch(value !== confirmPassword);
+    }
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    const value = e.target.value;
+    setConfirmPassword(value);
+    setPasswordMismatch(password !== value);
+  };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+
+    if (passwordMismatch) {
+      return;
+    }
 
     try {
       await signup(email, password, name);
       navigate("/verify-email");
     } catch (error) {
-      console.log(error);
+      console.error("Signup failed:", error);
     }
   };
   return (
@@ -30,11 +50,10 @@ const SignUpPage = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl 
-			overflow-hidden"
+      className="max-w-md w-full bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-xl rounded-2xl shadow-xl overflow-hidden"
     >
       <div className="p-8">
-        <h2 className="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-transparent bg-clip-text">
+        <h2 className="text-3xl font-bold mb-6 text-center bg-[#80D0C7] text-transparent bg-clip-text">
           Create Account
         </h2>
 
@@ -58,20 +77,27 @@ const SignUpPage = () => {
             type="password"
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
           />
+          <Input
+            icon={Lock}
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+          />
+          {passwordMismatch && (
+            <p className="text-red-500 text-sm mt-2">Passwords do not match!</p>
+          )}
           {error && <p className="text-red-500 font-semibold mt-2">{error}</p>}
           <PasswordStrengthMeter password={password} />
 
           <motion.button
-            className="mt-5 w-full py-3 px-4 bg-gradient-to-r from-[#6a11cb] to-[#2575fc] text-white 
-						font-bold rounded-lg shadow-lg hover:from-[#6a11cb]
-						hover:to-[#9634ff] focus:outline-none focus:ring-2 focus:ring-[#6a11cb] focus:ring-offset-2
-						 focus:ring-offset-gray-900 transition duration-200"
+            className="mt-5 w-full py-3 px-4 bg-gradient-to-r from-[#4758Df] to-[#2575fc] text-white font-bold rounded-lg shadow-lg hover:from-[#4758Df] hover:to-[#0093E9] focus:outline-none focus:ring-2 focus:ring-[#4758Df] focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-200"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            disabled={isLoading}
+            disabled={isLoading || passwordMismatch}
           >
             {isLoading ? (
               <Loader className=" animate-spin mx-auto" size={24} />
@@ -86,7 +112,7 @@ const SignUpPage = () => {
           Already have an account?{" "}
           <Link
             to={"/login"}
-            className="text-white hover:text-[#a149ff] hover:underline"
+            className="text-white hover:text-[#0093E9] hover:underline"
           >
             Login
           </Link>

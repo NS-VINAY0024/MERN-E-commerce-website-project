@@ -7,7 +7,7 @@ import {
     forgotPassword,
     resetPassword,
     checkAuth,
-    getprofile
+    getUserProfile
 } from "../controllers/auth.controller.js";
 import { verifyToken } from "../middlewares/verifyToken.js";
 import { protectRoute } from "../middlewares/auth.middleware.js";
@@ -24,6 +24,6 @@ router.post("/verify-email", verifyEmail);
 router.post("/forgot-password", forgotPassword);
 
 router.post("/reset-password/:token", resetPassword);
-router.post("/profile", protectRoute, getprofile);
+router.post("/profile", protectRoute, getUserProfile);
 
 export default router;

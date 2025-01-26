@@ -14,11 +14,11 @@ const PasswordCriteria = ({ password }) => {
       {criteria.map((item) => (
         <div key={item.label} className="flex items-center text-xs">
           {item.met ? (
-            <Check className="size-4 text-[#2575fc] mr-2" />
+            <Check className="size-4 text-[#0093E9] mr-2" />
           ) : (
-            <X className="size-4 text-[#6a11cb] mr-2" />
+            <X className="size-4 text-[#4758Df] mr-2" />
           )}
-          <span className={item.met ? "text-[#2575fc]" : "text-gray-400"}>
+          <span className={item.met ? "text-[#0093E9]" : "text-gray-400"}>
             {item.label}
           </span>
         </div>
