@@ -57,6 +57,7 @@ export const useAuthStore = create((set) => ({
       });
       throw error;
     }
+    console.log("error logging in", error); 
   },
 
   logout: async () => {

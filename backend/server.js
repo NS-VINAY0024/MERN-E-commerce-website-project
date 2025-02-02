@@ -8,6 +8,9 @@ import { connectDB } from "./lib/DB.js";
 
 import authRoutes from "./routes/auth.routes.js";
 import productsRoutes from "./routes/product.routes.js";
+import cartRoutes from "./routes/cart.routes.js";
+import couponRoutes from "./routes/coupon.routes.js";
+import paymentRoutes from "./routes/payment.routes.js";
 
 dotenv.config();
 
@@ -22,6 +25,9 @@ app.use(cookieParser()); // allows us to parse incoming cookies
 
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productsRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/coupons", couponRoutes);
+app.use("/api/payments", paymentRoutes);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "/frontend/dist")));

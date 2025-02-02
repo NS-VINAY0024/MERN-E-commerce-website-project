@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import CategoryItem from "../layout/CategoryItem";
 import { useProductStore } from "../store/useProductStore";
 import FeaturedProducts from "../layout/FeaturedProduct";
+import { useAuthStore } from "../store/authstore";
 
 const slides = [
   {
@@ -46,8 +47,9 @@ const slides = [
   },
 ];
 
-const HomePage = ({ userName }) => {
+const HomePage = () => {
   const { fetchFeaturedProducts, products, isLoading } = useProductStore();
+  const { user } = useAuthStore();
 
   useEffect(() => {
     fetchFeaturedProducts();
@@ -73,7 +75,7 @@ const HomePage = ({ userName }) => {
           </div>
         </div>
         <h1 className="text-center text-5xl sm:text-6xl font-bold text-emerald-400 mb-4">
-          Welcome, {userName} to AGNI Smart Shopping Mart
+          Welcome, {user?.name} to AGNI Smart Shopping Mart
         </h1>
         <p className="text-center text-xl text-gray-300 mb-12">
           Discover the latest trends in eco-friendly fashion
