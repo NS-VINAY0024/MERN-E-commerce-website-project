@@ -6,3 +6,11 @@
 
 /* Import Tailwind CSS utilities */
 @import "tailwindcss/utilities";
+
+@layer utilities {
+  input::-ms-reveal,
+  input::-webkit-credentials-auto-fill-button,
+  input::-webkit-clear-button {
+    display: none !important;
+  }
+}

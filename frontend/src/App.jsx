@@ -5,7 +5,6 @@ import { useEffect } from "react";
 //stores
 import { useCartStore } from "./store/useCartStore";
 import { useAuthStore } from "./store/authstore";
-import { useGetUser } from "./api/user";
 
 //Authentication
 import SignUpPage from "./Auth/pages/SignUpPage";
@@ -54,9 +53,8 @@ const IsAdmin = ({ children }) => {
 };
 
 function App() {
-  const {isCheckingAuth, checkAuth } = useAuthStore();
-  const { user } = useGetUser();
-  
+  const { isCheckingAuth, checkAuth, user } = useAuthStore();
+  console.log("User: ", user);
   const { getCartItems } = useCartStore();
   useEffect(() => {
     checkAuth();
@@ -127,7 +125,7 @@ function App() {
             path="/"
             element={
               <ProtectedRoute>
-                <HomePage userName={user.name} />
+                <HomePage userName={"N S Vinay"} />
               </ProtectedRoute>
             }
           />
