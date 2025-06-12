@@ -25,11 +25,11 @@ The goal is to create a feature-rich platform that incorporates best practices i
 
 ## 🔑 Key Features
 
-- User registration and authentication with OTP verification.
-- Real-time cart updates and synchronization with the backend.
+- User registration and authentication with one-time password (OTP) verification.
+- Real-time cart updates and synchronisation with the backend.
 - Payment gateway integration for smooth checkout.
 - Receipt generation and order history management.
-- Responsive design optimized for various devices.
+- Responsive design optimised for various devices.
 
 ---
 
@@ -45,11 +45,14 @@ The goal is to create a feature-rich platform that incorporates best practices i
 ## 📜 Future Scope
 
 - Explore advanced features like product recommendations, analytics, and AI-driven search.
-- Optimize for scalability and performance.
+- Optimise for scalability and performance.
 - Integrate with mobile platforms for a seamless omnichannel experience.
 
 ---
 
 ## 💡 Motivation
 
-This project represents a commitment to continuous learning and adapting to the ever-evolving field of software development. By building a practical and fully functional platform, the aim is to be well-prepared for professional challenges and opportunities.
+This project represents a commitment to continuous learning and adapting to the ever-evolving field of software development. By building a practical and fully functional platform, we aim to be well-prepared for the professional challenges and opportunities that lie ahead.
+
+
+# Still Under Development
